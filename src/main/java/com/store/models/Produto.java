@@ -14,25 +14,34 @@ public class Produto implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_produto")
     private Long id;
 
+    @Column(nullable = false)
     private String tipoUnidade;
 
+    @Column(nullable = false)
     private String nome;
 
-    private Boolean ativo;
+    @Column(nullable = false)
+    private Boolean ativo = Boolean.TRUE;
 
     @Column(columnDefinition = "text")
     private String descricao;
 
+    @Column(nullable = false)
     private Double peso;
 
+    @Column(nullable = false)
     private Double largura;
 
+    @Column(nullable = false)
     private Double altura;
 
+    @Column(nullable = false)
     private Double profundidade;
 
+    @Column(nullable = false)
     private BigDecimal valorVenda;
 
+    @Column(nullable = false)
     private Integer quantidadeEstoque;
 
     private Integer quantidadeAlertaEstoque;
@@ -43,6 +52,13 @@ public class Produto implements Serializable {
     private String linkVideo;
 
     private String quantidadeClicks;
+
+    //notaItemProduto
+    @ManyToOne
+    @JoinColumn(name = "nota_item_produto_id", nullable = false,
+            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "nota_item_produto_fk"))
+    private NotaItemProduto notaItemProduto;
+
 
     public Long getId() {
         return id;
@@ -162,5 +178,13 @@ public class Produto implements Serializable {
 
     public void setQuantidadeClicks(String quantidadeClicks) {
         this.quantidadeClicks = quantidadeClicks;
+    }
+
+    public NotaItemProduto getNotaItemProduto() {
+        return notaItemProduto;
+    }
+
+    public void setNotaItemProduto(NotaItemProduto notaItemProduto) {
+        this.notaItemProduto = notaItemProduto;
     }
 }

@@ -20,6 +20,7 @@ public class ContaPagar implements Serializable {
 
     private String descricao;
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private StatusContaPagar status;
 
@@ -29,6 +30,7 @@ public class ContaPagar implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dtPagamento;
 
+    @Column(nullable = false)
     private BigDecimal valorTotal;
 
     private BigDecimal valorDesconto;
