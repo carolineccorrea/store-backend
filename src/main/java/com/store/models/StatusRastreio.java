@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "status_rastrio")
+@Table(name = "status_rastreio")
 @SequenceGenerator(name = "seq_status_rastreio", sequenceName= "seq_status_rastreio", allocationSize = 1, initialValue = 1)
 public class StatusRastreio implements Serializable {
 
